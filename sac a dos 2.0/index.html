@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Problème du sac à dos — Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Problème du sac à dos (0/1)</h1>
+
+    <section class="card">
+      <h2>Configuration</h2>
+      <div class="row">
+        <label>Capacité du sac</label>
+        <input id="capacity" type="number" min="0" value="10" />
+      </div>
+
+      <div class="row add-item">
+        <div>
+          <label>Poids</label>
+          <input id="item-weight" type="number" min="0" value="1" />
+        </div>
+        <div>
+          <label>Valeur</label>
+          <input id="item-value" type="number" min="0" value="1" />
+        </div>
+        <button id="add-item-btn">Ajouter l'objet</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Objets</h2>
+      <table id="items-table">
+        <thead>
+          <tr><th>#</th><th>Poids</th><th>Valeur</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <!-- lignes d'objets ajoutées dynamiquement -->
+        </tbody>
+      </table>
+      <div class="row">
+        <button id="clear-items-btn" class="danger">Supprimer tous les objets</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Exécuter</h2>
+      <div class="controls">
+        <button id="run-dp-btn">Exécuter DP (affiche objets choisis)</button>
+        <button id="run-opt-btn">Exécuter Optimisé (1D)</button>
+      </div>
+
+      <div id="results" class="results">
+        <!-- résultats affichés ici -->
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
