@@ -1,0 +1,254 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "bubble_sort",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def bubble_sort(arr):\n    a = arr.copy()\n    n = len(a)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if a[j] > a[j+1]:\n                a[j], a[j+1] = a[j+1], a[j]\n    return a\ndef insertion_sort(arr):\n    a = arr.copy()",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "insertion_sort",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def insertion_sort(arr):\n    a = arr.copy()\n    for i in range(1, len(a)):\n        key = a[i]\n        j = i - 1\n        while j >= 0 and key < a[j]:\n            a[j+1] = a[j]\n            j -= 1\n        a[j+1] = key\n    return a",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "merge_sort",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    return merge(left, right)\ndef merge(left, right):\n    result = []\n    i = j = 0",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "merge",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def merge(left, right):\n    result = []\n    i = j = 0\n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            result.append(left[i])\n            i += 1\n        else:\n            result.append(right[j])\n            j += 1",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "quick_sort",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[0]\n    left = [x for x in arr[1:] if x <= pivot]\n    right = [x for x in arr[1:] if x > pivot]\n    return quick_sort(left) + [pivot] + quick_sort(right)\n# -------- Mesure du temps --------\ndef measure_time(sort_func, arr):\n    start = time.time()",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "measure_time",
+        "kind": 2,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "def measure_time(sort_func, arr):\n    start = time.time()\n    sort_func(arr)\n    end = time.time()\n    return end - start\n# -------- Comparaison --------\nsizes = [100, 500, 1000, 2000, 3000]\nresults = {'Bubble': [], 'Insertion': [], 'Merge': [], 'Quick': []}\nfor size in sizes:\n    arr = [random.randint(0, 10000) for _ in range(size)]",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "sizes",
+        "kind": 5,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "sizes = [100, 500, 1000, 2000, 3000]\nresults = {'Bubble': [], 'Insertion': [], 'Merge': [], 'Quick': []}\nfor size in sizes:\n    arr = [random.randint(0, 10000) for _ in range(size)]\n    results['Bubble'].append(measure_time(bubble_sort, arr))\n    results['Insertion'].append(measure_time(insertion_sort, arr))\n    results['Merge'].append(measure_time(merge_sort, arr))\n    results['Quick'].append(measure_time(quick_sort, arr))\n# -------- Export CSV --------\nwith open('tri_comparison.csv', 'w', newline='') as csvfile:",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "results",
+        "kind": 5,
+        "importPath": "complexite algorthmique.compltexite",
+        "description": "complexite algorthmique.compltexite",
+        "peekOfCode": "results = {'Bubble': [], 'Insertion': [], 'Merge': [], 'Quick': []}\nfor size in sizes:\n    arr = [random.randint(0, 10000) for _ in range(size)]\n    results['Bubble'].append(measure_time(bubble_sort, arr))\n    results['Insertion'].append(measure_time(insertion_sort, arr))\n    results['Merge'].append(measure_time(merge_sort, arr))\n    results['Quick'].append(measure_time(quick_sort, arr))\n# -------- Export CSV --------\nwith open('tri_comparison.csv', 'w', newline='') as csvfile:\n    writer = csv.writer(csvfile)",
+        "detail": "complexite algorthmique.compltexite",
+        "documentation": {}
+    },
+    {
+        "label": "jacobi",
+        "kind": 2,
+        "importPath": "Jacobi.jacobi",
+        "description": "Jacobi.jacobi",
+        "peekOfCode": "def jacobi(A, b, tol=1e-6, max_iter=100):\n    n = len(A)                # nombre d'équations\n    x = [0.0] * n             # vecteur de départ (0,0,...)\n    x_new = x.copy()\n    for iteration in range(max_iter):\n        # calcul de la nouvelle approximation\n        for i in range(n):\n            somme = 0\n            for j in range(n):\n                if j != i:",
+        "detail": "Jacobi.jacobi",
+        "documentation": {}
+    },
+    {
+        "label": "A",
+        "kind": 5,
+        "importPath": "Jacobi.jacobi",
+        "description": "Jacobi.jacobi",
+        "peekOfCode": "A = [\n    [6, 1],\n    [2, 3]\n]\nb = [9, 10]\nsolution = jacobi(A, b)\nprint(\"Solution approx :\", solution)",
+        "detail": "Jacobi.jacobi",
+        "documentation": {}
+    },
+    {
+        "label": "b",
+        "kind": 5,
+        "importPath": "Jacobi.jacobi",
+        "description": "Jacobi.jacobi",
+        "peekOfCode": "b = [9, 10]\nsolution = jacobi(A, b)\nprint(\"Solution approx :\", solution)",
+        "detail": "Jacobi.jacobi",
+        "documentation": {}
+    },
+    {
+        "label": "solution",
+        "kind": 5,
+        "importPath": "Jacobi.jacobi",
+        "description": "Jacobi.jacobi",
+        "peekOfCode": "solution = jacobi(A, b)\nprint(\"Solution approx :\", solution)",
+        "detail": "Jacobi.jacobi",
+        "documentation": {}
+    },
+    {
+        "label": "mat_vec_mul",
+        "kind": 2,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "def mat_vec_mul(A, x):\n    n = len(A)\n    result = [0.0] * n\n    for i in range(n):\n        for j in range(n):\n            result[i] += A[i][j] * x[j]\n    return result\n# -------------------- Norme d’un vecteur --------------------\ndef norm(x):\n    return math.sqrt(sum(val * val for val in x))",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "norm",
+        "kind": 2,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "def norm(x):\n    return math.sqrt(sum(val * val for val in x))\n# -------------------- Normalisation d’un vecteur --------------------\ndef normalize(x):\n    n = norm(x)\n    return [val / n for val in x]\n# -------------------- Power Method --------------------\ndef power_method(A, max_iter=1000, tol=1e-6):\n    n = len(A)\n    # vecteur initial aléatoire",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "kind": 2,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "def normalize(x):\n    n = norm(x)\n    return [val / n for val in x]\n# -------------------- Power Method --------------------\ndef power_method(A, max_iter=1000, tol=1e-6):\n    n = len(A)\n    # vecteur initial aléatoire\n    x = [random.random() for _ in range(n)]\n    x = normalize(x)\n    for _ in range(max_iter):",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "power_method",
+        "kind": 2,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "def power_method(A, max_iter=1000, tol=1e-6):\n    n = len(A)\n    # vecteur initial aléatoire\n    x = [random.random() for _ in range(n)]\n    x = normalize(x)\n    for _ in range(max_iter):\n        y = mat_vec_mul(A, x)      # A * x\n        x_new = normalize(y)       # normalisation\n        # condition d'arrêt\n        diff = math.sqrt(sum((x_new[i] - x[i])**2 for i in range(n)))",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "power_methode",
+        "kind": 2,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "def power_methode(A, max_iter=1000, tol=1e-6):\n    # 1. vecteur initial aléatoire\n    n = A.shape[0]\n    x = np.random.rand(n)\n    # normalisation initiale\n    x = x / np.linalg.norm(x)\n    for _ in range(max_iter):\n        # 2. multiplication\n        y = A @ x\n        # 3. normalisation",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "A",
+        "kind": 5,
+        "importPath": "Macbradford.marcbradfrd",
+        "description": "Macbradford.marcbradfrd",
+        "peekOfCode": "A = np.array([[4, 1],\n              [2, 3]])\neig, vec = power_method(A)\nprint(\"Valeur propre dominante :\", eig)\nprint(\"Vecteur propre associé :\", vec)\n# A = [\n#     [4, 1],\n#     [2, 3]\n# ]\n# eig, vec = power_methode(A)",
+        "detail": "Macbradford.marcbradfrd",
+        "documentation": {}
+    },
+    {
+        "label": "afficher_grille",
+        "kind": 2,
+        "importPath": "Morpion.morpion",
+        "description": "Morpion.morpion",
+        "peekOfCode": "def afficher_grille(board):\n    print(\"\\n\")\n    print(f\" {board[0]} | {board[1]} | {board[2]} \")\n    print(\"---+---+---\")\n    print(f\" {board[3]} | {board[4]} | {board[5]} \")\n    print(\"---+---+---\")\n    print(f\" {board[6]} | {board[7]} | {board[8]} \")\n    print(\"\\n\")\ndef verifier_gagnant(board, joueur):\n    combinaisons = [",
+        "detail": "Morpion.morpion",
+        "documentation": {}
+    },
+    {
+        "label": "verifier_gagnant",
+        "kind": 2,
+        "importPath": "Morpion.morpion",
+        "description": "Morpion.morpion",
+        "peekOfCode": "def verifier_gagnant(board, joueur):\n    combinaisons = [\n        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # lignes\n        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # colonnes\n        [0, 4, 8], [2, 4, 6]              # diagonales\n    ]\n    for combo in combinaisons:\n        if board[combo[0]] == board[combo[1]] == board[combo[2]] == joueur:\n            return True\n    return False",
+        "detail": "Morpion.morpion",
+        "documentation": {}
+    },
+    {
+        "label": "jeu_morpion",
+        "kind": 2,
+        "importPath": "Morpion.morpion",
+        "description": "Morpion.morpion",
+        "peekOfCode": "def jeu_morpion():\n    board = [\" \"] * 9\n    joueur = \"X\"\n    while True:\n        afficher_grille(board)\n        print(f\"Au tour du joueur {joueur}\")\n        try:\n            choix = int(input(\"Choisis une case (1-9) : \")) - 1\n        except ValueError:\n            print(\"Entrée invalide. Recommence.\")",
+        "detail": "Morpion.morpion",
+        "documentation": {}
+    },
+    {
+        "label": "knapsack_with_items",
+        "kind": 2,
+        "importPath": "Sac a dos.knapsack",
+        "description": "Sac a dos.knapsack",
+        "peekOfCode": "def knapsack_with_items(capacity, weights, values, n):\n    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]\n    for i in range(1, n + 1):\n        for w in range(1, capacity + 1):\n            if weights[i-1] <= w:\n                dp[i][w] = max(dp[i-1][w],\n                               values[i-1] + dp[i-1][w - weights[i-1]])\n            else:\n                dp[i][w] = dp[i-1][w]\n    chosen_items = []",
+        "detail": "Sac a dos.knapsack",
+        "documentation": {}
+    }
+]

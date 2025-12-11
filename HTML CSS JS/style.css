@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border-style: double;
+    font-size: x-large;
+}
+
+h1 {
+    color: darkblue;
+}
+#echiquier {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 0;
+    width: 400px;
+    margin: 20px auto;
+    border: 2px solid black;
+}
+
+.case {
+    width: 50px;
+    height: 50px;
+}
+
+.noire {
+    background-color: black;
+}
+
+.blanche {
+    background-color: white;
+}
